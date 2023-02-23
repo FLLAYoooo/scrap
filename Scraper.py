@@ -36,15 +36,15 @@ class Scraper:
         result = []
         MAX = 0
         for url in urls:
-            # if MAX < 10:
-            soup = self.swoup(url, process)
-            if hasattr(soup, '__len__'):
-                result.extend(soup)
-            else: 
-                result.append(soup)
-            time.sleep(5)
-            MAX += 1
-            print(MAX)
+            if MAX < 1000:
+                soup = self.swoup(url, process)
+                if hasattr(soup, '__len__'):
+                    result.extend(soup)
+                else: 
+                    result.append(soup)
+                time.sleep(5)
+                MAX += 1
+                print(MAX)
         return result
 
     def exec(self):
